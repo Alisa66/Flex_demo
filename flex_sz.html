@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex实战篇</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
+            background-color: floralwhite;
+            justify-content: center;
+        }
+
+        h2, h3, h4 {
+            text-align: center;
+        }
+
+        .box {
+            display: flex;
+            width: 120px;
+            height: 120px;
+            background-color: #e7e7e7;
+            border-radius: 10px;
+            margin: 30px;
+            box-shadow: inset 0 5px white,
+            inset 0 -5px #bbb,
+            inset 5px 0 #d7d7d7,
+            inset -5px 0 #d7d7d7;
+        }
+
+        .item {
+            display: block;
+            width: 25px;
+            height: 25px;
+            background-color: #333;
+            border-radius: 50%;
+            margin: 4px;
+            box-shadow: inset 0 3px #111, inset 0 -3px #555;
+            color: #ffe411;
+            font-weight: bold;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .two {
+            justify-content: center;
+        }
+
+        .three {
+            justify-content: flex-end;
+        }
+
+        .box.four {
+            align-items: center;
+        }
+
+        .box.five {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box.six {
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .box.seven {
+            align-items: flex-end;
+        }
+
+        .box.eight {
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .box.nine {
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .boxc {
+            flex-direction: column;
+        }
+
+        .cone {
+            flex-direction: column;
+        }
+
+        .cfour {
+            justify-content: center;
+        }
+
+        .cseven {
+            justify-content: flex-end;
+        }
+
+        .ctwo {
+            align-items: center;
+        }
+
+        .cfive {
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ceight {
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .cthree {
+            align-items: flex-end;
+        }
+
+        .csix {
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .cnine {
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
+        /*两个点*/
+        .box_1 {
+            justify-content: space-between;
+        }
+
+        .box_2 {
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .box_3 {
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .box_4 {
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .box_5 {
+            justify-content: space-between;
+        }
+
+        .boxt_1 {
+            justify-content: space-between;
+        }
+
+        .boxt_2 {
+            justify-content: space-between;
+        }
+
+        .boxf_1 {
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            align-content: space-between;
+        }
+
+        .boxs {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+        }
+        .boxf_2 {
+            display: flex;
+            justify-content: space-between;
+            flex-basis: 100%;
+        }
+    </style>
+</head>
+<body>
+<h2>九点圆圆麻将集合</h2>
+<div class="container">
+    <div class="box">
+        <span class="item">1</span>
+    </div>
+    <div class="box">
+        <span class="item">1</span>
+        <span class="item" style="align-self: center">2</span>
+    </div>
+    <div class="box">
+        <span class="item">1</span>
+        <span class="item" style="align-self: center">2</span>
+        <span class="item" style="align-self: flex-end;">3</span>
+    </div>
+    <div class="box boxs">
+        <div class="boxf_2">
+            <span class="item">1</span>
+            <span class="item">2</span>
+        </div>
+        <div class="boxf_2">
+            <span class="item">3</span>
+            <span class="item">4</span>
+        </div>
+    </div>
+    <div class="box boxs">
+        <div class="boxf_2">
+            <span class="item">1</span>
+            <span class="item">2</span>
+        </div>
+        <div class="boxf_2" style="justify-content: center">
+            <span class="item">5</span>
+        </div>
+
+        <div class="boxf_2">
+            <span class="item">3</span>
+            <span class="item">4</span>
+        </div>
+    </div>
+    <div class="box boxs">
+        <div class="boxf_2">
+            <span class="item">1</span>
+            <span class="item">4</span>
+        </div>
+        <div class="boxf_2">
+            <span class="item">2</span>
+            <span class="item">5</span>
+        </div>
+        <div class="boxf_2">
+            <span class="item">3</span>
+            <span class="item">6</span>
+        </div>
+    </div>
+    <div class="box boxs">
+        <div class="boxf_2">
+            <span class="item">1</span>
+            <span class="item">2</span>
+        </div>
+        <div class="boxf_2">
+            <span class="item">3</span>
+            <span class="item">4</span>
+            <span class="item">5</span>
+        </div>
+        <div class="boxf_2">
+            <span class="item">6</span>
+            <span class="item">7</span>
+        </div>
+    </div>
+
+    <div class="box boxs" style="flex-direction: column">
+        <div class="boxf_2"  style="flex-direction: column">
+            <span class="item">1</span>
+            <span class="item">2</span>
+            <span class="item">3</span>
+            <span class="item">4</span>
+        </div>
+        <div class="boxf_2" style="flex-direction: column;">
+            <span class="item">6</span>
+            <span class="item">7</span>
+            <span class="item">8</span>
+            <span class="item">9</span>
+        </div>
+    </div>
+    <div class="box boxs">
+        <div class="boxf_2">
+            <span class="item">1</span>
+            <span class="item">2</span>
+            <span class="item">3</span>
+        </div>
+        <div class="boxf_2">
+            <span class="item">4</span>
+            <span class="item">5</span>
+            <span class="item">6</span>
+        </div>
+        <div class="boxf_2">
+            <span class="item">7</span>
+            <span class="item">8</span>
+            <span class="item">9</span>
+        </div>
+    </div>
+</div>
+
+<h2>单点</h2>
+<h3>用flex-direction:row实现单点</h3>
+<div class="container">
+    <div class="box">
+        <span class="item">1</span>
+    </div>
+    <div class="box two">
+        <span class="item">2</span>
+    </div>
+    <div class="box three">
+        <span class="item">3</span>
+    </div>
+    <div class="box four">
+        <span class="item">4</span>
+    </div>
+    <div class="box five">
+        <span class="item">5</span>
+    </div>
+    <div class="box six">
+        <span class="item">6</span>
+    </div>
+    <div class="box seven">
+        <span class="item">7</span>
+    </div>
+    <div class="box eight">
+        <span class="item">8</span>
+    </div>
+    <div class="box nine">
+        <span class="item">9</span>
+    </div>
+</div>
+<h3>主要是flex-direction：column实现单点</h3>
+<div class="container">
+    <div class="box boxc cone">
+        <span class="item">1</span>
+    </div>
+    <div class="box boxc ctwo">
+        <span class="item">2</span>
+    </div>
+    <div class="box boxc cthree">
+        <span class="item">3</span>
+    </div>
+    <div class="box boxc cfour">
+        <span class="item">4</span>
+    </div>
+    <div class="box boxc cfive">
+        <span class="item">5</span>
+    </div>
+    <div class="box boxc csix">
+        <span class="item">6</span>
+    </div>
+    <div class="box boxc  cseven">
+        <span class="item">7</span>
+    </div>
+    <div class="box boxc ceight">
+        <span class="item">8</span>
+    </div>
+    <div class="box boxc cnine">
+        <span class="item">9</span>
+    </div>
+</div>
+<h4>从这里我们可以得出结论：align-items是主轴的位置。默认是flex-start，justfiy-content:是项目在这个方向上的位置</h4>
+<h2>双点</h2>
+<div class="container">
+    <div class="box box_1">
+        <span class="item">1</span>
+        <span class="item">2</span>
+    </div>
+    <div class="box box_2">
+        <span class="item">1</span>
+        <span class="item">2</span>
+    </div>
+    <div class="box box_3">
+        <span class="item">1</span>
+        <span class="item">2</span>
+    </div>
+    <div class="box box_4">
+        <span class="item">1</span>
+        <span class="item">2</span>
+    </div>
+    <div class="box">
+        <span class="item">1</span>
+        <span class="item" style="align-self: center">2</span>
+    </div>
+    <div class="box" style="justify-content: space-between;">
+        <span class="item">1</span>
+        <span class="item" style="align-self: center">2</span>
+    </div>
+    <div class="box">
+        <span class="item">1</span>
+        <span class="item" style="align-self: flex-end;">2</span>
+    </div>
+
+    <div class="box box_5">
+        <span class="item">1</span>
+        <span class="item" style="align-self: flex-end">2</span>
+    </div>
+</div>
+<h2>三点</h2>
+<div class="container">
+    <div class="box boxt_1">
+        <span class="item">1</span>
+        <span class="item">2</span>
+        <span class="item">3</span>
+    </div>
+    <div class="box boxt_2">
+        <span class="item">1</span>
+        <span class="item" style="align-self: center">2</span>
+        <span class="item" style="align-self: flex-end">3</span>
+    </div>
+</div>
+<h2>四点</h2>
+<div class="container">
+    <p>当flex-wrap换行时间，就有两根主轴线了。align-content此时就相当于justify-content。不同的是
+        align-content控制的是这两条主轴线上项目的排列。justify-content控制的是一条线上的排列</p>
+    <div class="box boxf_1">
+        <span class="item">1</span>
+        <span class="item">2</span>
+        <span class="item">3</span>
+        <span class="item">4</span>
+    </div>
+    <div class="box boxs">
+        <div class="boxf_2">
+            <span class="item">1</span>
+            <span class="item">2</span>
+        </div>
+        <div class="boxf_2">
+            <span class="item">3</span>
+            <span class="item">4</span>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

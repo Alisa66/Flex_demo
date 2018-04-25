@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex布局</title>
+    <style>
+        .box {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            background-color: floralwhite;
+            text-align: center;
+        }
+        h3,h4,h5,p{
+            text-align: center;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 10px 10px;
+            background-color: #ABCDEF;
+        }
+
+        .box.boxrow {
+            flex-direction: row;
+        }
+
+        .box.boxcolum {
+            flex-direction: column-reverse;
+        }
+
+        .box.boxwrap {
+            flex-direction: row;
+            flex-wrap: wrap-reverse;
+        }
+
+        /*页面中元素对齐方式*/
+        .box.boxjust {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .box.alignitem {
+            align-items: baseline;
+        }
+         .box-tall{
+             height: 600px;
+             background-color: beige;
+         }
+         .aligncontent{
+            align-content: space-around;
+            flex-wrap: wrap;
+        }
+        .box-item{
+            width:200px;
+        }
+
+
+    </style>
+</head>
+<body>
+<h3>justify-content!!!没有理解到</h3>
+<h4>flex-direction:row（主轴为水平方向，起点在左端）
+    flex-direction:row-reverse（主轴为水平方向，起点在右端）
+</h4>
+<div class="box boxrow">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<h4> flex-direction:column（主轴为垂直方向,从上往下）
+    flex-direction:column-reverse（主轴为垂直方向,从下往上） </h4>
+<div class="box boxcolum">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<h4>flex-wrap项目以及如何换行 nowrap不换行|wrap，第一行在左上方|wrap-reverse第一行在下方</h4>
+<div class="box boxwrap">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+</div>
+<h4 style="color: red;">flex-flow是flex-direction和flex-wrap的简写形式。默认值为 row wrap</h4>
+<h4>justify-content定义项目在主轴上的对齐方式（相当于text-align）</h4>
+<h5>flex-start:左对齐（默认）
+    flex-end:右对齐
+    center：居中
+    space-between:两端对齐，项目之间的间隔都相等；
+    space-around：每个项目的两侧的间隔相等。项目之间的间隔比边框的间隔大一倍
+    space-evenly:每个项目之间的距离都一样，
+</h5>
+<div class="box boxjust">
+    <div style="width: 60px;">1</div>
+    <div style="width: 120px">2</div>
+    <div>3</div>
+
+</div>
+<h5>align-items 定义项目在交叉轴上如何对齐
+    <p>flex-start:交叉轴的起点对齐</p>
+    <p>flex-end:交叉轴的终点对齐</p>
+    <p>baseline：基于第一行的文字对齐</p>
+    <p>stretch: 默认值，容易未设置高度，将默认占整个屏幕的高度</p>
+
+</h5>
+<div class="box alignitem">
+    <div style="height: 200px;">gs</div>
+    <div style="height: 60px;">gs</div>
+    <div style="height: 30px;">gd</div>
+    <div style="height: 180px;">gd</div>
+</div>
+<h5>align-content 定义了很多根轴线的对齐方式，如果只有一条轴线 就不会起作用</h5>
+<p style="color: red;">要有很多根轴线，那么就至少要有两个轴线，box本身有一根轴线，那么里面的box-tall也得有一条轴线，的给他一个高，
+ box布局是flex，里面的容器就默认flex布局的，box-tall有了高 里面也有轴线，宽度是继承box的，这样才能align-content的效果才会实现
+</p>
+<p style="color: red;text-align: center"><strong>为啥里面的div的宽度达到一定时，flex-end才会生效？？</strong></p>
+<p>flex-end：与交叉轴的终点对齐</p>
+<p>center：与交叉轴的中点对齐</p>
+<p>space-between：与交叉轴的两端对齐，轴线之间的间隔平均分布</p>
+<p>space-around：每根轴线两侧的间隔都相等，轴线之间的间隔比轴线与边框的间隔大一倍</p>
+<div class="box box-tall aligncontent">
+    <div class="box-item">1</div>
+    <div class="box-item">2</div>
+    <div class="box-item">3</div>
+    <div class="box-item">4</div>
+    <div class="box-item">5</div>
+    <div class="box-item">6</div>
+    <div class="box-item">7</div>
+    <div class="box-item">8</div>
+    <div class="box-item">9</div>
+</div>
+<h5>里面的项目div的所用的属性</h5>
+<p>order:integer 就是里面div排列的先后顺序，越小越靠前.默认是0</p>
+<div class="box">
+    <div style="order: -1">-1 </div>
+    <div style="order: 1">2</div>
+    <div>3 </div>
+    <div>4</div>
+</div>
+<p>flex-grow：number 放大比例，默认为0 及时有剩余空间也不放大</p>
+<div class="box">
+    <div style="flex-grow: 0;"></div>
+    <div style="flex-grow: 1">1</div>
+    <div style="flex-grow: 2">2</div>
+    <div style="flex-grow: 2">2</div>
+</div>
+<p>flex-shrink:number 默认为1 空间不足的话 会默认缩小</p>
+<div class="box">
+    <div style="flex-shrink: 0">0不缩小</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<p>flex-basis：length|auto 在分配多余空间之前，项目占据主轴空间，根据这个属性，计算主轴是否有多余的空间
+ 默认为auto，及项目本来的大小
+</p>
+<br>
+<p>flex是flex-grow，flex-shrink，flex-basis的缩写
+    该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+</p>
+
+<br>
+<h5>align-self:单个项目与其他项目不一样的对齐方式，默认为auto(表示继承父元素的align-item)，如果没有父元素，就等同于strech</h5>
+<div class="box" style="height:800px">
+    <div style="width: 600px;align-self:flex-start;">flex-start</div>
+    <div></div>
+    <div></div>
+    <div style="align-self: center">center</div>
+    <div></div>
+    <div style="align-self: baseline">baseline</div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div style="width: 300px;align-self: flex-end">flex-end</div>
+
+</div>
+</body>
+</html>
